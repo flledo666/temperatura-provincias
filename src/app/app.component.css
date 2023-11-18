@@ -1,0 +1,17 @@
+#filtroLabel,#filtroText {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: larger;
+    margin-left: 20px;
+    border-color: beige;
+
+}
+#filtroLabel::placeholder,#filtroText::placeholder {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left:5px;
+    color: lightgray;
+}
+div {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: larger;
+    margin-left: 20px;
+}

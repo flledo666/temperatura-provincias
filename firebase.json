@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site":"provincias",
+    "public": "dist/temperatura-provincias",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

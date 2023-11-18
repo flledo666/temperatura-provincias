@@ -1,0 +1,35 @@
+.ciudad{
+    border:1px solid beige;
+    margin: 1rem;  
+    padding: 1rem;
+}
+
+.nombre {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.temperatura{
+    font-size: 1.3rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+img
+{
+    float:right;
+}
+
+div{
+    background-color: beige;
+}
+button {
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+    background-color: burlywood;
+    border-color: burlywood;
+    color:black;
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+}

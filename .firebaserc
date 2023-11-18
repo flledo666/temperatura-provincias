@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "temperatura-provincias": {
+      "hosting": {
+        "temperatura-provincias": [
+          "temperatura-provincias"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "temperatura-provincias"
+  }
+}
