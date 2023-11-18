@@ -1,37 +1,21 @@
 <div class="ciudad">
-    <div *ngIf="cielo===EstadoCielo.Soleado" class="cielo-soleado">
-        <img width='90px' src="../../assets/sol.png">
-    </div>
-    <div *ngIf="cielo===EstadoCielo.PocoNuboso" class="cielo-nevando">
-        <img width='90px' src="../../assets/poco-nuboso.png">
-    </div>
-    <div *ngIf="cielo===EstadoCielo.Nuboso" class="cielo-nublado">
-        <img width='90px' src="../../assets/nuboso.png">
-    </div>
-    <div *ngIf="cielo===EstadoCielo.MuyNuboso" class="cielo-lluvioso">
-        <img width='90px' src="../../assets/muy-nuboso.png">
-    </div>
-    <div *ngIf="cielo===EstadoCielo.Cubierto" class="cielo-lluvioso">
-        <img width='90px' src="../../assets/cubierto.png">
-    </div>
-    <div *ngIf="cielo===EstadoCielo.NubesAltas" class="cielo-lluvioso">
-        <img width='90px' src="../../assets/nubes-altas.png">
-    </div>
-    <div *ngIf="cielo===EstadoCielo.Lluvioso" class="cielo-lluvioso">
-        <img width='90px' src="../../assets/lluvioso.png">
-    </div>
-    <div *ngIf="cielo===EstadoCielo.MuyLluvioso" class="cielo-lluvioso">
-        <img width='90px' src="../../assets/muy-lluvioso.png">
-    </div>
-    <div *ngIf="cielo===EstadoCielo.Tormenta" class="cielo-lluvioso">
-        <img width='90px' src="../../assets/tormenta.png">
-    </div>
-    <div *ngIf="cielo===EstadoCielo.Nieve" class="cielo-nevando">
-        <img width='90px' src="../../assets/nieve.png">
+    <div>
+        <img *ngIf="cielo===EstadoCielo.Soleado" width='90px' src="assets/sol.png" title="{{cielo}}">
+        <img *ngIf="cielo===EstadoCielo.PocoNuboso" width='90px' src="assets/poco-nuboso.png" title="{{cielo}}">
+        <img *ngIf="cielo===EstadoCielo.Nuboso" width='90px' src="assets/nuboso.png" title="{{cielo}}">
+        <img *ngIf="cielo===EstadoCielo.MuyNuboso" width='90px' src="assets/muy-nuboso.png" title="{{cielo}}">
+        <img *ngIf="cielo===EstadoCielo.Cubierto" width='90px' src="assets/cubierto.png" title="{{cielo}}">
+        <img *ngIf="cielo===EstadoCielo.NubesAltas" width='90px' src="assets/nubes-altas.png" title="{{cielo}}">
+        <img *ngIf="cielo===EstadoCielo.Lluvioso" width='90px' src="assets/lluvioso.png" title="{{cielo}}">
+        <img *ngIf="cielo===EstadoCielo.MuyLluvioso" width='90px' src="assets/muy-lluvioso.png" title="{{cielo}}">
+        <img *ngIf="cielo===EstadoCielo.Tormenta" width='90px' src="assets/tormenta.png" title="{{cielo}}">
+        <img *ngIf="cielo===EstadoCielo.Nieve" width='90px' src="assets/nieve.png" title="{{cielo}}">
     </div>
     <div class="nombre">{{nombre}}</div>
-    <div appResaltar color="rgb(48, 123, 244)" class="temperatura">Min: {{tempMin}}º</div>
-    <div appResaltar color="rgb(231, 78, 43)" class="temperatura">Max: {{tempMax}}º</div>
+    <div *ngIf="tempMin != 999" appResaltar color="rgb(48, 123, 244)" class="temperatura">Min: {{tempMin}}º</div>
+    <div *ngIf="tempMin == 999" appResaltar color="rgb(48, 123, 244)" class="temperatura">No hay datos</div>
+    <div *ngIf="tempMax != 999" appResaltar color="rgb(231, 78, 43)" class="temperatura">Max: {{tempMax}}º</div>
+    <div *ngIf="tempMax == 999" appResaltar color="rgb(231, 78, 43)" class="temperatura">No hay datos</div>
     
     <!-- <button (click)="incrementar()">+</button>
     <button (click)="decrementar()">-</button> -->

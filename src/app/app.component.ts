@@ -380,7 +380,7 @@ export class AppComponent {
         },
         {
             nombre:"Melilla",
-            codigo:"52002",
+            codigo:"52001",
             tempMax:0,
             tempMin:0,
             cielo:EstadoCielo.Soleado

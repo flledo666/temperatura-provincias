@@ -6,7 +6,7 @@ export class HttpService {
 
   constructor(private http:HttpClient) {}
 
-  getHttp(codigo:string)
+  getTemperaturas(codigo:string)
   {
     return this.http.get("https://www.el-tiempo.net/api/json/v2/provincias/"+ codigo);
   }

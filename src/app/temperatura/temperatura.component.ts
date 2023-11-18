@@ -12,6 +12,7 @@ export enum EstadoCielo {
   MuyLluvioso='Muy lluvioso',
   Tormenta='Tormenta',
   Nieve='Nieve',
+  Desconocido=''
 }
 
 @Component({
@@ -21,23 +22,26 @@ export enum EstadoCielo {
 })
 export class TemperaturaComponent {
     @Input() nombre: string = "";
-    @Input() tempMax: number= 0;
-    @Input() tempMin: number= 0;
-    @Input() cielo: EstadoCielo= EstadoCielo.Soleado;
+    @Input() tempMax: number= NaN;
+    @Input() tempMin: number= NaN;
+    @Input() cielo: EstadoCielo=EstadoCielo.Desconocido;
     @Input() codigo: string="";
 
     @Output() temperaturaChange = new EventEmitter<number>();
 
     EstadoCielo = EstadoCielo;
     
-    constructor (private jsonHttp: HttpService) {}
+    constructor (private Http: HttpService) {}
 
     ngOnInit()
     {
-      this.jsonHttp.getHttp(this.codigo.substring(0,2))
+      this.Http.getTemperaturas(this.codigo.substring(0,2))
         .subscribe(data => 
         {
           let xml = JSON.parse(JSON.stringify(data));
+          this.tempMax = 999;            
+          this.tempMin = 999;  
+          this.cielo = EstadoCielo.Desconocido;          
           if (xml.ciudades.length > 0)
           {
             for (let i = 0; i < xml.ciudades.length; i++) 
@@ -51,10 +55,6 @@ export class TemperaturaComponent {
                 return;
               }
             }
-          }
-          else{
-            this.tempMax = 0;            
-            this.tempMin = 0;            
           }
         });
     }
