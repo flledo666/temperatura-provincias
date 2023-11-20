@@ -8,6 +8,7 @@ export enum EstadoCielo {
   MuyNuboso='Muy nuboso',
   NubesAltas='Nubes altas',
   Cubierto='Cubierto',
+  PocoLluvioso='Cubierto con lluvia escasa',
   Lluvioso='Lluvioso',
   MuyLluvioso='Muy lluvioso',
   Tormenta='Tormenta',
@@ -22,8 +23,9 @@ export enum EstadoCielo {
 })
 export class TemperaturaComponent {
     @Input() nombre: string = "";
-    @Input() tempMax: number= NaN;
-    @Input() tempMin: number= NaN;
+    @Input() temperatura: number | string = "Cargando";
+    @Input() tempMax: number | string = "Cargando";
+    @Input() tempMin: number | string = "Información"
     @Input() cielo: EstadoCielo=EstadoCielo.Desconocido;
     @Input() codigo: string="";
 
@@ -35,27 +37,15 @@ export class TemperaturaComponent {
 
     ngOnInit()
     {
-      this.Http.getTemperaturas(this.codigo.substring(0,2))
+      this.Http.getTemperaturas(this.codigo)
         .subscribe(data => 
         {
           let xml = JSON.parse(JSON.stringify(data));
-          this.tempMax = 999;            
-          this.tempMin = 999;  
-          this.cielo = EstadoCielo.Desconocido;          
-          if (xml.ciudades.length > 0)
-          {
-            for (let i = 0; i < xml.ciudades.length; i++) 
-            {
-              if (xml.ciudades[i].id == this.codigo)
-              {
-                //console.log(xml.ciudades[i].stateSky.description + " " + xml.ciudades[i].name);
-                this.tempMax = xml.ciudades[i].temperatures.max;
-                this.tempMin = xml.ciudades[i].temperatures.min;
-                this.cielo = xml.ciudades[i].stateSky.description;
-                return;
-              }
-            }
-          }
+          this.temperatura = xml.temperatura_actual;
+          this.tempMax = xml.temperaturas.max;
+          this.tempMin = xml.temperaturas.min;
+          this.cielo = xml.stateSky.description;
+          //console.log (xml.stateSky.description);
         });
     }
     

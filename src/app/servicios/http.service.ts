@@ -8,6 +8,6 @@ export class HttpService {
 
   getTemperaturas(codigo:string)
   {
-    return this.http.get("https://www.el-tiempo.net/api/json/v2/provincias/"+ codigo);
+    return this.http.get("https://www.el-tiempo.net/api/json/v2/provincias/"+ codigo.substring(0,2) + "/municipios/" + codigo);
   }
 }

@@ -18,6 +18,14 @@ img
 {
     float:right;
 }
+.temperatura-actual
+{
+    font-size: 2rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    float:right;
+    font-weight: bolder;
+    margin-right:50px;
+}
 
 div{
     background-color: beige;
