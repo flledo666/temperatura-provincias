@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { HttpService } from '../servicios/http.service';
+import { HttpService } from '../servicios/http.servicio';
 
 export enum EstadoCielo {
   Soleado='Despejado',

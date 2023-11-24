@@ -18,7 +18,8 @@ export interface Ciudad {
 
 export class AppComponent {
     title = 'Temperaturas por Provincia';
-
+    filtro = "";
+    fecha = new Date();
 
     ciudades:Ciudad[] = [
         {
@@ -387,13 +388,8 @@ export class AppComponent {
         }
     ];
 
-    
-    filtro = "";
-
     /* Clase para sacar mensajes por consola */
     constructor (private log: LoggerService){}
-
-    fecha = new Date();
 
     cambioTemperatura(event:number):void{
         this.log.log("Nueva temperatura: " + event);
