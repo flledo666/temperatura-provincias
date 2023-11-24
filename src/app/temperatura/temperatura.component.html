@@ -2,6 +2,7 @@
     <div>
         <img *ngIf="cielo===EstadoCielo.Soleado" width='90px' src="assets/sol.png" title="{{cielo}}">
         <img *ngIf="cielo===EstadoCielo.PocoNuboso" width='90px' src="assets/poco-nuboso.png" title="{{cielo}}">
+        <img *ngIf="cielo===EstadoCielo.IntervalosNubosos" width='90px' src="assets/poco-nuboso.png" title="{{cielo}}">
         <img *ngIf="cielo===EstadoCielo.Nuboso" width='90px' src="assets/nuboso.png" title="{{cielo}}">
         <img *ngIf="cielo===EstadoCielo.MuyNuboso" width='90px' src="assets/muy-nuboso.png" title="{{cielo}}">
         <img *ngIf="cielo===EstadoCielo.Cubierto" width='90px' src="assets/cubierto.png" title="{{cielo}}">
@@ -11,15 +12,15 @@
         <img *ngIf="cielo===EstadoCielo.MuyLluvioso" width='90px' src="assets/muy-lluvioso.png" title="{{cielo}}">
         <img *ngIf="cielo===EstadoCielo.Tormenta" width='90px' src="assets/tormenta.png" title="{{cielo}}">
         <img *ngIf="cielo===EstadoCielo.Nieve" width='90px' src="assets/nieve.png" title="{{cielo}}">
+        <img *ngIf="cielo===EstadoCielo.Niebla" width='90px' src="assets/niebla.png" title="{{cielo}}">
     </div>
     <div class="nombre">{{nombre}}</div>
     <div appResaltar color="rgb(100,100, 00)" class="temperatura-actual">{{temperatura}}ºC</div>
     <div appResaltar color="rgb(48, 123, 244)" class="temperatura">Min: {{tempMin}}ºC</div>
     <div appResaltar color="rgb(231, 78, 43)" class="temperatura">Max: {{tempMax}}ºC</div>
-    
+
     <!--  EJEMPLO DE COMO USAR EN EMISOR DE EVENTOS eventEmitter
         <button (click)="incrementar()">+</button>
         <button (click)="decrementar()">-</button> 
     -->
 </div>
-
