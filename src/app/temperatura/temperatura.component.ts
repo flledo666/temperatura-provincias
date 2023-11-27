@@ -44,7 +44,7 @@ export class TemperaturaComponent {
         this.temperatura = xml.temperatura_actual;
         this.tempMax = xml.temperaturas.max;
         this.tempMin = xml.temperaturas.min;
-        this.cielo = xml.stateSky.description;
+        this.cielo = xml.stateSky.description.trim();
         //console.log (xml.stateSky.description);
       });
   }
