@@ -43,9 +43,9 @@ function convertirStateSky(id:string)
 export class TemperaturaComponent {
   @Input() nombre: string = "";
   temperatura: number | string = "Cargando";
-  @Input() tempMax: number | string = "Cargando";
-  @Input() tempMin: number | string = "Información"
-  @Input() cielo: EstadoCielo = EstadoCielo.Desconocido;
+  tempMax: number | string = "Cargando";
+  tempMin: number | string = "Información"
+  cielo: EstadoCielo = EstadoCielo.Desconocido;
   descripcion: string = "";
   @Input() codigo: string = "";
 

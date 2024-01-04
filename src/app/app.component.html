@@ -12,9 +12,6 @@
 
 <app-temperatura *ngFor="let c of ciudades | filtroCiudades:filtro"
     [nombre]=c.nombre
-    [tempMax]=c.tempMax
-    [tempMin]=c.tempMin
-    [cielo]=c.cielo
     [codigo]=c.codigo
     (temperaturaChange)=cambioTemperatura($event)>
 </app-temperatura>
