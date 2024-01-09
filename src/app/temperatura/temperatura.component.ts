@@ -18,15 +18,18 @@ export enum EstadoCielo {
   Desconocido = ''
 }
 
-function convertirStateSky(id:string)
-{
+function convertirStateSky(id: string) {
+  /* A veces el código acaba en n y eso jode todo */
+  if (id.endsWith("n"))
+    id = id.slice(0, -1);
+
   switch (Number(id)) {
     case 11: return EstadoCielo.Soleado;
     case 12: return EstadoCielo.PocoNuboso;
     case 15: return EstadoCielo.MuyNuboso;
     case 16: return EstadoCielo.Cubierto;
     case 17: return EstadoCielo.NubesAltas;
-    case 43: 
+    case 43:
     case 46: return EstadoCielo.PocoLluvioso;
     case 54:
     case 64: return EstadoCielo.Tormenta;
@@ -43,8 +46,8 @@ function convertirStateSky(id:string)
 export class TemperaturaComponent {
   @Input() nombre: string = "";
   temperatura: number | string = "Cargando";
-  tempMax: number | string = "Cargando";
-  tempMin: number | string = "Información"
+  tempMin: number | string = "Cargando "
+  tempMax: number | string = "Información ";
   cielo: EstadoCielo = EstadoCielo.Desconocido;
   descripcion: string = "";
   @Input() codigo: string = "";
@@ -66,7 +69,7 @@ export class TemperaturaComponent {
         this.descripcion = xml.stateSky.description;
 
         if (this.cielo == EstadoCielo.Desconocido)
-          console.log (`${this.nombre} ${xml.stateSky.description}(${xml.stateSky.id})`);
+          console.log(`${this.nombre} ${xml.stateSky.description}(${xml.stateSky.id})`);
 
       });
   }
