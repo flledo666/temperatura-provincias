@@ -26,9 +26,11 @@ function convertirStateSky(id: string) {
   switch (Number(id)) {
     case 11: return EstadoCielo.Soleado;
     case 12: return EstadoCielo.PocoNuboso;
+    case 14: return EstadoCielo.Nuboso;
     case 15: return EstadoCielo.MuyNuboso;
     case 16: return EstadoCielo.Cubierto;
     case 17: return EstadoCielo.NubesAltas;
+    case 26: return EstadoCielo.Lluvioso;
     case 43:
     case 46: return EstadoCielo.PocoLluvioso;
     case 54:
